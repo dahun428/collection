@@ -22,7 +22,7 @@ public class CommonUtils {
 	public static String detailDateString(Date date) {
 		if(date == null) {
 			return "";
-		}
+		} 
 		return DETAIL_DATE_FORMATER.format(date);
 	}
 	

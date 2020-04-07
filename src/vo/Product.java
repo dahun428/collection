@@ -1,5 +1,7 @@
 package vo;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Product {
@@ -8,7 +10,9 @@ public class Product {
 	private String name;
 	private String maker;
 	private int price;
-	private Date createDate;
+	private Date createDate = new Date();
+	SimpleDateFormat df = new SimpleDateFormat("yyyy년MM월dd일");
+	DecimalFormat decimalform = new DecimalFormat("#,###");
 	
 	
 	public Product(int no, String name, String maker, int price) {
@@ -42,18 +46,42 @@ public class Product {
 	public void setMaker(String maker) {
 		this.maker = maker;
 	}
-	public int getPrice() {
-		return price;
+	public String getPrice() {	
+		return decimalform.format(price);
 	}
 	
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public Date getCreateDate() {
-		return createDate;
+	public String getCreateDate() {
+		return df.format(createDate);
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + no;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (no != other.no)
+			return false;
+		return true;
 	}
 	
 	

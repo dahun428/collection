@@ -35,8 +35,8 @@ public class ArrayListDemo3 {
 			System.out.println("상품번호 : " + product.getNo());
 			System.out.println("상품명 : " + product.getName());
 			System.out.println("제조사 : " + product.getMaker());
-			System.out.println("가격 : " + CommonUtils.numberToString(product.getPrice()));
-			System.out.println("등록 날짜 : " + CommonUtils.simpleDateString(product.getCreateDate()));
+//			System.out.println("가격 : " + CommonUtils.numberToString(product.getPrice()));
+//			System.out.println("등록 날짜 : " + CommonUtils.simpleDateString(product.getCreateDate()));
 			System.out.println();
 		}
 		
