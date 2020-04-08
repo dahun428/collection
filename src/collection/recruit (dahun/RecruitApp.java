@@ -21,9 +21,9 @@ public class RecruitApp {
 			int menuNo = scanner.nextInt();
 			
 			if (menuNo == 1) {
-				System.out.println("=========================================================================================");
-				System.out.println("1.이력서등록 2.경력사항등록 3.채용상태확인 4.이력서수정 5.구직신청 삭제 6.경력사항 메뉴 7.구직신청 현황 조회");
-				System.out.println("=========================================================================================");
+				System.out.println("==========================================================================");
+				System.out.println("1.이력서등록 2.경력사항등록 3.채용상태확인 4.이력서수정 5.구직신청 삭제");
+				System.out.println("==========================================================================");
 				
 				System.out.print("구직자 메뉴를 선택하세요 : ");
 				int empMenuNo = scanner.nextInt();
@@ -95,87 +95,11 @@ public class RecruitApp {
 					System.out.print("구직신청 번호를 입력해주세요 : ");
 					int recruitmentNo = scanner.nextInt();
 					service.deleteRecruitment(recruitmentNo);
-				} else if (empMenuNo == 6) {
-					System.out.println();
-					System.out.println("[경력사항 메뉴]");
-					System.out.println("==========================================================================");
-					System.out.println("1.경력사항 조회  2.경력사항 수정  3.경력사항 삭제");
-					System.out.println("==========================================================================");
-					System.out.print("메뉴를 입력해주세요 : ");
-					int menuNum = scanner.nextInt();
-					
-					if (menuNum == 1) {
-						System.out.println();
-						System.out.println("[경력사항 조회 메뉴]");
-						System.out.print("구직 신청 번호를 입력해주세요 : ");
-						int recruitmentNo = scanner.nextInt();
-						System.out.print("재직 회사명을 입력하세요 : ");
-						String companyName = scanner.next();
-						service.printCareerDetail(recruitmentNo, companyName);
-												
-					} else if (menuNum == 2) {
-						System.out.println();
-						System.out.println("[경력사항 수정 메뉴]");
-						System.out.print("구직 신청 번호를 입력해주세요 : ");
-						int recruitmentNo = scanner.nextInt();
-						System.out.print("변경할 회사 명을 입력해주세요 : ");
-						String oldCompanyName = scanner.next();
-						System.out.print("수정할 회사 명을 입력하세요 : ");
-						String newCompanyName = scanner.next();
-						System.out.print("수정할 회사직무를 입력하세요 : ");
-						String newDept = scanner.next();
-						System.out.print("수정할 회사직위를 입력하세요 : ");
-						String newPosition = scanner.next();
-						System.out.print("수정할 회사의 근무 연수를 입력해주세요 : ");
-						int newYear = scanner.nextInt();
-						
-						Career career = new Career();
-						career.setCompanyName(newCompanyName);
-						career.setDept(newDept);
-						career.setPosition(newPosition);
-						career.setYear(newYear);
-						service.printCareerUpdate(recruitmentNo, oldCompanyName, career);
-						System.out.println("수정이 완료 되었습니다.");
-						
-					} else if (menuNum == 3) {
-						
-					}
-					
-				} else if (empMenuNo == 7) {
-					System.out.println();
-					System.out.println("[구직 신청 현황 조회]");
-					System.out.println("==========================================================================");
-					System.out.println("1.지원자수 조회  2.평균근무 기간 조회");
-					System.out.println("==========================================================================");
-					int menuNum2 = scanner.nextInt();
-					if (menuNum2 == 1) {
-						System.out.println();
-						System.out.print("조회하실 지원부서를 입력해주세요");
-						String dept = scanner.next();
-						System.out.println("==========================================================================");
-						System.out.println("지원부서	신청인원");
-						System.out.println("==========================================================================");
-						service.retrieveHowManyByDept(dept);
-						
-					} else if (menuNum2 == 2) {
-						System.out.println();
-						System.out.print("조회하실 지원부서를 입력해주세요");
-						String dept = scanner.next();
-						System.out.println("==========================================================================");
-						System.out.println("지원부서	평균근무 기간");
-						System.out.println("==========================================================================");
-						
-						
-					}
-					
-					
-					
-					
-				}
+				} 
 				
 			} else if (menuNo == 2) {
 				System.out.println("==========================================================================");
-				System.out.println("1.채용신청서 조회  2.채용신청서 상세조회  3.채용신청서 심사 4.전체 구직신청조회(정렬순)");
+				System.out.println("1.채용신청서 조회  2.채용신청서 상세조회  3.채용신청서 심사");
 				System.out.println("==========================================================================");
 				
 				System.out.print("구직자 메뉴를 선택하세요 : ");
@@ -210,22 +134,7 @@ public class RecruitApp {
 					service.checkRecruitment(recruitmentNo, isPassed);
 					// 구직신청번호와 합격불합격여부를 Y/N으로 입력받는다.
 					
-				} else if (empMenuNo == 4) {
-					System.out.println();
-					System.out.println("[전체 구직신청조회(정렬순)]");
-					System.out.println("==========================================================================");
-					System.out.println("1.이름 순으로 정렬 2.근무경력순으로 정렬");
-					System.out.println("==========================================================================");
-					System.out.print("메뉴를 입력하세요 : ");
-					int menuNum3 = scanner.nextInt();
-					
-					if (menuNum3 == 1) {
-						
-					} else if (menuNum3 == 2) {
-						
-					}
-					System.out.print("");
-				}
+				} 
 				
 			} else if (menuNo == 0) {
 				System.out.println("### 프로그램을 종료합니다.");

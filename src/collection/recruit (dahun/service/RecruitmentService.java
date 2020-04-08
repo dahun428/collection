@@ -80,53 +80,16 @@ public class RecruitmentService {
 				String dept = career.getDept();
 				String position = career.getPosition();
 				int year = career.getYear();
+				
 				System.out.println(companyName+"\t"+dept+"\t"+position+"\t"+year);
 			}
 		}
-		// 레포지토리에서 구직신청번호에 해당하는 구직신청객체를 조회해서 화면에 출력한다.
-	}
-	//경력사항 수정기능
-	public void printCareerUpdate(int recruitmentNo, String oldCompanyName, Career newCareer) {
-		Recruitment recruitment = repo.getRecruitmentByNo(recruitmentNo);
-		if(recruitment == null) {
-			System.out.println("["+recruitmentNo+"] 번호에 해당하는 구직신청현황이 존재하지 않습니다.");
-			return;
-		}
-		ArrayList<Career> careers = recruitment.getCareers();
-		for (Career career : careers) {
-			if(career.getCompanyName().equals(oldCompanyName)) {
-				career.setCompanyName(newCareer.getCompanyName());
-				career.setDept(newCareer.getDept());
-				career.setPosition(newCareer.getPosition());
-				career.setYear(newCareer.getYear());
-				break;
-			}
-		}
-	}
-	//경력사항 조회 기능(1건)
-	public void printCareerDetail(int recruitmentNo, String companyName) {
-		Recruitment recruitment = repo.getRecruitmentByNo(recruitmentNo);
-		if(recruitment == null) {
-			System.out.println("["+recruitmentNo+"] 번호에 해당하는 구직신청현황이 존재하지 않습니다.");
-			return;
-		}
-
-		Resume resume = recruitment.getResume();
-		ArrayList<Career> careers = recruitment.getCareers();
 		
-		for(Career career : careers) {
-			if (career.getCompanyName().equals(companyName)) {
-				System.out.println();
-				System.out.println("=====["+resume.getName()+"]님의 경력사항==============");
-				System.out.println("재직회사	재직부서	최종직급	근무기간(연)");
-				System.out.println("=========================================");
-				String dept = career.getDept();
-				String position = career.getPosition();
-				int year = career.getYear();
-				System.out.println(companyName+"\t"+dept+"\t"+position+"\t"+year);
-			} 
-		}
+		
+		// 레포지토리에서 구직신청번호에 해당하는 구직신청객체를 조회해서 화면에 출력한다.
+		
 	}
+	
 	// 이력서 수정 기능
 	public void updateResume(int recruitmentNo, Resume resume) {
 		Recruitment recruitment = repo.getRecruitmentByNo(recruitmentNo);
@@ -183,30 +146,5 @@ public class RecruitmentService {
 		// 레포지토리에서 구직신청번호에 해당하는 구직신청객체를 조회한다.
 		// 합격/불합격여부를 결정한다.
 	}
-	
-	public void retrieveHowManyByDept(String dept) {
-		
-		ArrayList<Recruitment> recruitments = repo.getAllRecruitments();
-		int count = 0;
-		for(Recruitment recruitment : recruitments) {
-			
-		}
-		
-		
-		int count = recruitments.size();
-		System.out.println(dept+"\t"+count);
-	}
-	public void retrieveHowMuchYearByDept(String dept) {
-		ArrayList<Recruitment> recruitments = repo.getAllRecruitments();
-		int year = 0;
-		for(Recruitment recruitment : recruitments) {
-			recruitment.get
-		}
-		
-		
-	}
-	
-	
-	
 
 }
