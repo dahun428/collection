@@ -187,21 +187,41 @@ public class RecruitmentService {
 	public void retrieveHowManyByDept(String dept) {
 		
 		ArrayList<Recruitment> recruitments = repo.getAllRecruitments();
+		
 		int count = 0;
+		
 		for(Recruitment recruitment : recruitments) {
+			ArrayList<Career> careers = recruitment.getCareers();
+			for(Career career : careers) {
+				if (career.getDept().equals(dept)) {
+					count++;
+				} else {
+					break;
+				}
+			}
 			
 		}
-		
-		
-		int count = recruitments.size();
 		System.out.println(dept+"\t"+count);
 	}
 	public void retrieveHowMuchYearByDept(String dept) {
 		ArrayList<Recruitment> recruitments = repo.getAllRecruitments();
-		int year = 0;
+		int sum = 0;
+		int count = 0;
+		
 		for(Recruitment recruitment : recruitments) {
-			recruitment.get
+			ArrayList<Career> careers = recruitment.getCareers();
+			for(Career career : careers) {
+				if (career.getDept().equals(dept)) {
+					sum += career.getYear();
+					count++;
+				} else {
+					break;
+				}
+			}
+			
 		}
+		double avg = ((sum / count)*10)/10;
+		System.out.println(dept+"\t"+avg);
 		
 		
 	}
